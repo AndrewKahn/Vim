@@ -112,6 +112,22 @@ map 0 ^
 nnoremap ; :
 nnoremap : ;
 
+" <space> switches to the next window (give it a second)
+" <space>n switches to the next window
+" <space><space> switches to the next window and maximizes it
+" <space>= Equalizes the size of all windows
+" + Increases the size of the current window
+" - Decreases the size of the current window
+
+ :map <space> <c-W>w
+:map <space>n <c-W>w
+:map <space><space> <c-W>w<c-W>_
+:map <space>= <c-W>=
+if bufwinnr(1)
+  map + <c-W>+
+  map - <c-W>-
+endif
+
 " Move a line of text using ALT+[jk] or Comamnd+[jk] on mac
 nmap <M-j> mz:m+<cr>`z
 nmap <M-k> mz:m-2<cr>`z
